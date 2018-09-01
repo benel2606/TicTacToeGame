@@ -5,6 +5,7 @@
     
     table {
         margin: 20px auto;
+        transition: 1.5s;
     }
     
     h1 {
@@ -17,6 +18,8 @@
         font-weight: 600;
         padding-bottom: 20px;
         line-height: 0.8;
+        /* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
+        text-shadow: 2px 2px 4px #000000;
     }
     
     td {
@@ -28,6 +31,8 @@
         font-size: 60px;
         border-radius: 30%;
         color: rgb(19, 19, 61);
+        /* box-shadow: 3px 3px 3px grey; */
+        transition: 0.3s;
     }
     
     div {
@@ -54,7 +59,7 @@
     
     #msg {
         display: inline-block;
-        width: 20%;
+        width: 30%;
         color: rgb(19, 19, 61);
     }
     
@@ -68,8 +73,8 @@
     }
     
     .mode {
-        border-left: 3px solid steelblue;
-        border-right: 3px solid steelblue;
+        background-color: steelblue;
+        color: white;
     }
     
     .win {
