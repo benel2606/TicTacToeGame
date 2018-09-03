@@ -1,11 +1,13 @@
 var cells = document.getElementsByTagName("td");
-var newGameBtn = document.querySelector("#newGame");
 var msg = document.querySelector("#msg");
 var vsPlayerBtn = document.querySelector("#vsPlayer");
 var vsComputerBtn = document.querySelector("#vsComputer");
+var modeHelp = document.querySelector("#blank");
 var player = "X";
 var N = 3;
 var changeMode = true;
+var tieCheck = 1;
+var winFlag = false;
 var rowCell = new Array(N);
 var colCell = new Array(N);
 var diagCell = [new cell(), new cell()];
@@ -26,58 +28,44 @@ startGame();
 function startGame() {
 
     msg.innerHTML = "Please Choose a game mode";
-
     vsPlayerBtn.addEventListener("click", function() {
-
         clearBoard();
+        msgUpdate("New Game", "X");
         vsComputerBtn.classList.remove("mode");
         vsPlayerBtn.classList.add("mode");
-        msg.innerHTML = "Player vs. Player mode";
-
-        setTimeout(() => {
-            changeMode = true;
-            vsPlayer();
-            if (changeMode) {
-                changeMode = false;
-                vsPlayerRestartGame();
-                gameOver("vsComputer");
-                clearBoard();
-                vsPlayer();
-            }
-        }, 400);
+        changeMode = true;
+        updateModeHelpMsg("vsPlayer");
+        vsPlayer();
+        if (changeMode) {
+            changeMode = false;
+            gameOver("vsComputer");
+            vsPlayerRestartGame();
+        }
     });
 
     vsComputerBtn.addEventListener("click", function() {
-
         clearBoard();
+        msgUpdate("New Game", "X");
         vsComputerBtn.classList.add("mode");
         vsPlayerBtn.classList.remove("mode");
-        msg.innerHTML = "Player vs. Computer mode";
-        setTimeout(() => {
-            changeMode = true;
-            vsComputer();
-            updateMove();
-            if (changeMode) {
-                changeMode = false;
-                vsComputerRestartGame();
-                gameOver("vsPlayer");
-                clearBoard();
-                vsComputer();
-                updateMove();
-            }
-        }, 400);
+        vsComputerRestartGame();
+        gameOver("vsPlayer");
+        updateModeHelpMsg("vsComputer");
+        vsComputer();
+        updateMove();
+
     });
 }
+
 // Player vs. Player - O(1) complexity ----------------------------------------------------------------------------------------------------
 
 function vsPlayer() {
-    console.log("here");
     initRowAndCol();
+    tieCheck = 1;
+    winFlag = false;
     for (var i = 0; i < cells.length; i++) {
         cells[i].addEventListener("click", gamePlan);
     }
-    newGameBtn.addEventListener("click", vsPlayerRestartGame);
-    msgUpdate("New Game", player);
 }
 
 function gamePlan() {
@@ -86,7 +74,7 @@ function gamePlan() {
     console.log("player: " + player);
     console.log("column: " + col);
     console.log("row: " + row);
-    console.log("-------------------")
+    console.log("-------------------");
     if (this.textContent === "") {
         this.textContent = player;
         var sign = player;
@@ -109,6 +97,7 @@ function initRowAndCol() {
 }
 
 function switchPlayer() {
+    tieCheck++;
     if (player === "X")
         player = "O";
     else
@@ -128,15 +117,18 @@ function updateCell(type, index, sign) {
         temp.active = false;
     }
     if (temp.size === N) {
+        winFlag = true;
         msgUpdate("Win", sign);
         gameOver("vsPlayer");
+    } else if (tieCheck === 9 && !winFlag) {
+        msgUpdate("Tie", sign);
     }
 }
 
 function vsPlayerRestartGame() {
+    console.log("player vs player");
     clearBoard();
     player = "X";
-    msgUpdate("New Game", player);
     diagCell[0].reset();
     diagCell[1].reset();
     for (var i = 0; i < N; i++) {
@@ -160,12 +152,13 @@ function msgUpdate(type, sign) {
         setTimeout(() => {
             msg.innerHTML = "The winner is: " + sign;
         }, 100);
+        updateModeHelpMsg("Choose");
     }
     if (type === "Tie") {
         setTimeout(() => {
             msg.innerHTML = "Tie!";
         }, 100);
-
+        updateModeHelpMsg("Choose");
     }
 }
 
@@ -174,13 +167,11 @@ function gameOver(mode) {
         for (var i = 0; i < cells.length; i++) {
             cells[i].removeEventListener("click", gamePlan);
         }
-        //newGameBtn.removeEventListener("click", vsPlayerRestartGame);
     }
     if (mode === "vsComputer") {
         for (var i = 0; i < cells.length; i++) {
             cells[i].removeEventListener("click", initAndStartGame);
         }
-        //newGameBtn.removeEventListener("click", vsComputerRestartGame);
     }
 }
 
@@ -190,7 +181,25 @@ function clearBoard() {
     }
 }
 
-// Player vs. Computer - Minimax algoritem  -----------------------------------------------------------------------------------------------
+function updateModeHelpMsg(mode) {
+    if (mode === "vsPlayer") {
+        modeHelp.innerHTML = "Player vs. Player mode";
+        setTimeout(() => {
+            modeHelp.innerHTML = ""
+        }, 2000);
+    }
+    if (mode === "vsComputer") {
+        modeHelp.innerHTML = "Player vs. Computer mode";
+        setTimeout(() => {
+            modeHelp.innerHTML = ""
+        }, 2000);
+    }
+    if (mode === "Choose") {
+        modeHelp.innerHTML = "Press mode to start a new game";
+    }
+}
+
+// Player vs. Computer - Minimax algorithm  -----------------------------------------------------------------------------------------------
 
 var board = [
     [null, null, null],
@@ -205,6 +214,7 @@ if (myMove) {
 }
 
 function vsComputerRestartGame() {
+    console.log("player vs computer");
     clearBoard();
     board = [
         [null, null, null],
@@ -212,7 +222,6 @@ function vsComputerRestartGame() {
         [null, null, null]
     ];
     myMove = false;
-    msgUpdate("New Game", "X");
     for (var i = 0; i < cells.length; i++) {
         cells[i].addEventListener("click", initAndStartGame);
     }
@@ -222,10 +231,11 @@ function vsComputer() {
     for (var i = 0; i < cells.length; i++) {
         cells[i].addEventListener("click", initAndStartGame);
     }
-    newGameBtn.addEventListener("click", vsComputerRestartGame);
+    msgUpdate("New Game", "X");
 }
 
 function initAndStartGame() {
+    player = "X";
     var cell = this.id;
     var row = parseInt(cell[1])
     var col = parseInt(cell[2])
