@@ -17,5 +17,5 @@ An explanation of the differences between the modes.
 | **programming approach** | Iteration   | Recursion|
 |**Special features**| O(1) Complexity | Minimax algorithm|
 
-### Screenshot
+### Screenshots
 ![webp net-resizeimage 1](https://user-images.githubusercontent.com/33378368/45116603-ee1fc580-b15b-11e8-8173-ab264403b552.jpg)
