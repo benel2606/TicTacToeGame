@@ -1,6 +1,6 @@
 # Tic Tac Toe Game
 ### Introduction:
-##### The Tic Tac Toe game included 2 mode:
+The Tic Tac Toe game contains 2 mode:
 - Player vs. Player - in **O(1) Complexity**.
 - Player vs. Computer - using **Minimax Algorithem**.
   
