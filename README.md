@@ -18,4 +18,9 @@ An explanation of the differences between the modes.
 |**Special features**| O(1) Complexity | Minimax algorithm|
 
 ### Screenshots
-![webp net-resizeimage 1](https://user-images.githubusercontent.com/33378368/45116603-ee1fc580-b15b-11e8-8173-ab264403b552.jpg)
+
+> Player vs. Player mode
+![player vs player](https://user-images.githubusercontent.com/33378368/45173361-a27b2380-b210-11e8-992e-8bb491c91637.gif)
+
+> Player vs. Computer mode
+![player vs computer](https://user-images.githubusercontent.com/33378368/45173448-e79f5580-b210-11e8-96c9-d87ad466ae2b.gif)
