@@ -1,8 +1,8 @@
 # Tic Tac Toe Game
 ### Introduction:
 The Tic Tac Toe game contains 2 mode:
-- Player vs. Player - **O(1) Time complexity**.
-- Player vs. Computer - using **Minimax Algorithem**.
+- Player vs. Player - used with **O(1) Time complexity**.
+- Player vs. Computer - used with **Minimax Algorithem**.
   
 ### Coding Languages:
 - HTML
@@ -10,13 +10,13 @@ The Tic Tac Toe game contains 2 mode:
 - Javascript
 
 ### Features:
-An explanation of the differences between the modes.
+An explanation about the differences between the modes.
 
 |Basis for Comparison | Player vs. Player |  Player vs. Computer|
 | :------: | ------ |------ |
-|**How to play ?** | When Choosen this mode, you can play with someone else and the site wait for the another player reaction. | When Choosen this mode, you can play with the computer, you must to start and the computer test your move and respond accordingly.   |
+|**How to play ?** | When you choose this mode, you can play with someone else and the site will wait for the other player reaction. | When you choose this mode, you can play with the computer, you must start and the computer test your move and respond accordingly.   |
 | **programming approach** | Iteration   | Recursion|
-|**Special features**| O(1) time complexity | Minimax Algorithm |
+|**Special features**| O(1) Time Complexity | Minimax Algorithm |
 
 ### Screenshots
 
