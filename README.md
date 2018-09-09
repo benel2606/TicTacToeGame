@@ -1,8 +1,8 @@
 # Tic Tac Toe Game
 ### Introduction:
 The Tic Tac Toe game contains 2 mode:
-- Player vs. Player - used with **O(1) Time complexity**.
-- Player vs. Computer - used with **Minimax Algorithem**.
+- Player vs. Player - using **O(1) Time complexity**.
+- Player vs. Computer - using **Minimax Algorithem**.
   
 ### Coding Languages:
 - HTML
