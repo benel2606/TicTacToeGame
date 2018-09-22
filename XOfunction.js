@@ -306,7 +306,6 @@ function getWinner(board) {
 }
 
 function updateCells() {
-
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             key = "c" + i + j;
