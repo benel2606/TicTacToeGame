@@ -26,7 +26,6 @@ function cell() {
 startGame();
 
 function startGame() {
-
     msg.innerHTML = "Please Choose a game mode";
     vsPlayerBtn.addEventListener("click", function() {
         clearBoard();
