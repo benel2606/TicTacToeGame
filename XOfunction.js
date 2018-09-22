@@ -195,11 +195,11 @@ function updateModeHelpMsg(mode) {
         }, 2000);
     }
     if (mode === "Choose") {
-        modeHelp.innerHTML = "Press mode to start a new game";
+        modeHelp.innerHTML = "Choose a mode to start a new game";
     }
 }
 
-// Player vs. Computer - Minimax algorithm  -----------------------------------------------------------------------------------------------
+// Player vs. Computer - Minimax Algorithm  -----------------------------------------------------------------------------------------------
 
 var board = [
     [null, null, null],
@@ -249,7 +249,6 @@ function initAndStartGame() {
 }
 
 function updateMove() {
-
     var winner = getWinner(board);
     if (winner === 1) {
         msgUpdate("Win", "O");
@@ -264,7 +263,6 @@ function updateMove() {
 }
 
 function getWinner(board) {
-
     // Check if someone won
     vals = [true, false];
     var allNotNull = true;
@@ -309,6 +307,7 @@ function getWinner(board) {
 }
 
 function updateCells() {
+
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             key = "c" + i + j;
@@ -345,6 +344,7 @@ function recurseMinimax(board, player) {
                 // Tie
                 return [0, board];
         }
+
     } else {
         // Next states
         var nextVal = null;
@@ -367,4 +367,6 @@ function recurseMinimax(board, player) {
         }
         return [nextVal, nextBoard];
     }
+
+
 }

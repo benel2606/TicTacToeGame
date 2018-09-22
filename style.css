@@ -18,7 +18,7 @@
             font-size: 70px;
             font-weight: 600;
             padding-bottom: 20px;
-            line-height: 0.8;
+            line-height: 1.5;
             text-shadow: 2px 2px 4px #000000;
         }
         
@@ -55,12 +55,12 @@
         #blank {
             display: inline-block;
             color: rgb(19, 19, 61);
-            width: 26%;
+            width: 45%;
         }
         
         #msg {
             display: inline-block;
-            width: 30%;
+            width: 40%;
             color: rgb(19, 19, 61);
         }
         
@@ -84,6 +84,6 @@
         
         h2 {
             font-size: 15px;
-            text-align: right;
+            text-align: center;
             letter-spacing: 1px;
         }
