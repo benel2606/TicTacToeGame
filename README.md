@@ -14,7 +14,7 @@ An explanation about the differences between the modes.
 
 |Basis for Comparison | Player vs. Player |  Player vs. Computer|
 | :------: | ------ |------ |
-|**How to play ?** | When you choose this mode, you can play with someone else and the site will wait for the other player reaction. | When you choose this mode, you can play with the computer, you must start and the computer test your move and respond accordingly.   |
+|**How to play ?** | When you choose this mode, you can play with someone else and the site will wait for the other player's reaction. | When you choose this mode, you can play with the computer, you must start and the computer test your move and respond accordingly.   |
 | **programming approach** | Iteration   | Recursion|
 |**Special features**| O(1) Time Complexity | Minimax Algorithm |
 
@@ -25,3 +25,6 @@ An explanation about the differences between the modes.
 
 > Player vs. Computer mode
 ![player vs computer](https://user-images.githubusercontent.com/33378368/45173448-e79f5580-b210-11e8-96c9-d87ad466ae2b.gif)
+
+### Do you want to try it yourself ? 
+`<Demo>`  <https://benel2606.github.io/TicTacToeGame/>
